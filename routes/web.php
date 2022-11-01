@@ -18,6 +18,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+
+//admin
+
+
+
+
+
+
 Route::get('/products',[ProductController::class,'index'])->name('products');
 
 

@@ -75,9 +75,49 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
+
+                @if (Auth::check())
+                @if (Auth::user()->role==1)
+                    <a href="index.html" class="nav-item nav-link active">Add product</a>
+                    @endif
+
+                
+                @endif
+              
+                
                 <a href="index.html" class="nav-item nav-link active">Home</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="product.html" class="nav-item nav-link">Products</a>
+                <a href="{{Route('products')}}" class="nav-item nav-link">Products</a>
+
+                @if (Auth::check())
+                <form action="{{route('logout')}}" method="POST">
+                    @csrf
+                    <div class="nav-item">
+                        <a class="nav-link"  onclick="event.preventDefault();
+                                    this.closest('form').submit(); " role="button">
+                            <i class="fas fa-sign-out-alt"></i>
+            
+                            {{ __('Log out') }}
+                        </a>
+                    </div>
+                    </div>
+                    </form>
+                @else
+                <a href="{{route('login')}}" class="nav-item nav-link">Log in</a>
+                {{-- <form method="POST" action="{{route('login')}}">
+                    @csrf
+                    <div class="nav-item">
+                        <a class="nav-link" href="{{ route('login')}}" onclick="event.preventDefault();
+                                    this.closest('form').submit(); " role="button">
+                            <i class="fas fa-sign-out-alt"></i>
+            
+                            {{ __('Log in') }}
+                        </a>
+                    </div>
+                </form> --}}
+                @endif
+               
+                
                 
         
                 <a href="contact.html" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">Cart <i class="bi bi-arrow-right"></i></a>
