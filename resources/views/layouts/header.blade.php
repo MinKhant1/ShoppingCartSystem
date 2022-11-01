@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <!-- Topbar Start -->
+    {{-- <!-- Topbar Start -->
     <div class="container-fluid border-bottom d-none d-lg-block">
         <div class="row gx-0">
             <div class="col-lg-4 text-center py-2">
@@ -62,7 +62,7 @@
             </div>
         </div>
     </div>
-    <!-- Topbar End -->
+    <!-- Topbar End --> --}}
 
 
     <!-- Navbar Start -->
