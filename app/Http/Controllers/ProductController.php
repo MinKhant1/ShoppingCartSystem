@@ -9,11 +9,20 @@ class ProductController extends Controller
 {
     //
 
-    function index()
-    {  
+    // function index()
+    // {  
         
-        return view('products');
+    //     return view('products');
       
+    // }
+
+
+    function products()
+    {
+        $products=Product::all();
+
+        return view('products')->with('products',$products);
+    
     }
 
     function productlist()
