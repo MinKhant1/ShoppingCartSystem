@@ -27,6 +27,8 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
+
+    
 </head>
 
 <body>
@@ -78,7 +80,7 @@
 
                 @if (Auth::check())
                 @if (Auth::user()->role==1)
-                    <a href="index.html" class="nav-item nav-link active">Add product</a>
+                    <a href="{{route('productlist')}}" class="nav-item nav-link active">Add product</a>
                     @endif
 
                 
@@ -104,17 +106,7 @@
                     </form>
                 @else
                 <a href="{{route('login')}}" class="nav-item nav-link">Log in</a>
-                {{-- <form method="POST" action="{{route('login')}}">
-                    @csrf
-                    <div class="nav-item">
-                        <a class="nav-link" href="{{ route('login')}}" onclick="event.preventDefault();
-                                    this.closest('form').submit(); " role="button">
-                            <i class="fas fa-sign-out-alt"></i>
-            
-                            {{ __('Log in') }}
-                        </a>
-                    </div>
-                </form> --}}
+              
                 @endif
                
                 

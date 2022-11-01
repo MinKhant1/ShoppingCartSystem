@@ -21,12 +21,20 @@ Route::get('/', function () {
 
 //admin
 
+Route::get('/addproduct',[ProductController::class,'addproduct'])->name('addproduct');
+Route::get('/productlist',[ProductController::class,'productlist'])->name('productlist');
+Route::post('saveproduct',[ProductController::class,'saveproduct'])->name('saveproduct');
 
 
 
 
+
+//user
 
 Route::get('/products',[ProductController::class,'index'])->name('products');
+
+
+
 
 
 

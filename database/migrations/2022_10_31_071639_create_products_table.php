@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('category');
             $table->integer('quantity');
             $table->string('image');
-            $table->string('image1');
-            $table->string('image2');
+            $table->string('image1')->nullable();
+            $table->string('image2')->nullable();
             $table->timestamps();
         });
     }
