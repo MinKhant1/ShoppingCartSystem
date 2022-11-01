@@ -82,7 +82,7 @@
                     <td>{{$product->quantity}}</td>
                     
                     <td>
-                      <a href="{{url('/deleteproduct/'. $product->id)}}" id="delete" class="btn btn-danger " ><i class="nav-icon fas fa-trash"></i></a>
+                      <a href="{{url('/deleteproduct/'. $product->id)}}" id="delete" class="btn btn-danger " >Delete</a>
                     </td>
                   </tr>
                   {{Form::hidden('', $increment = $increment + 1)}}
