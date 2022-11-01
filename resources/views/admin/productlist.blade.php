@@ -67,6 +67,7 @@
                     <th>price</th>
                     <th>category</th>
                     <th>quantity</th>
+                    <th>Edit</th>
                     <th>Delete</th>
                   </tr>
                   </thead>
@@ -80,7 +81,9 @@
                     <td>{{$product->price}}</td>
                     <td>{{$product->category}}</td>
                     <td>{{$product->quantity}}</td>
-                    
+                    <td>
+                      <a href="{{url('/editproduct/'. $product->id)}}" id="edit" class="btn btn-warning " >Edit</a>
+                    </td>
                     <td>
                       <a href="{{url('/deleteproduct/'. $product->id)}}" id="delete" class="btn btn-danger " >Delete</a>
                     </td>

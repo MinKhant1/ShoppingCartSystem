@@ -25,6 +25,8 @@ Route::get('/addproduct',[ProductController::class,'addproduct'])->name('addprod
 Route::get('/productlist',[ProductController::class,'productlist'])->name('productlist');
 Route::post('saveproduct',[ProductController::class,'saveproduct'])->name('saveproduct');
 Route::get('deleteproduct/{id}',[ProductController::class,'deleteproduct']);
+Route::get('editproduct/{id}',[ProductController::class,'editproduct']);
+Route::post('updateproduct',[ProductController::class,'updateproduct']);
 
 
 
