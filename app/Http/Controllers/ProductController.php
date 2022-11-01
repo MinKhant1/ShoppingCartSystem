@@ -35,6 +35,15 @@ class ProductController extends Controller
         }
     }
 
+    function deleteproduct($id)
+    {
+        $product=Product::find($id);
+        $product->delete();
+
+        return back()->with('status', 'Product has been deleted!');
+
+    }
+
     function saveproduct(Request $request)
     {
 

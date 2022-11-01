@@ -80,14 +80,14 @@
 
                 @if (Auth::check())
                 @if (Auth::user()->role==1)
-                    <a href="{{route('productlist')}}" class="nav-item nav-link active">Add product</a>
+                    <a href="{{route('productlist')}}" class="nav-item nav-link active">Manage Products</a>
                     @endif
 
                 
                 @endif
               
                 
-                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="{{Route('products')}}" class="nav-item nav-link">Products</a>
 

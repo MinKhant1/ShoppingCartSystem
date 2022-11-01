@@ -24,6 +24,7 @@ Route::get('/', function () {
 Route::get('/addproduct',[ProductController::class,'addproduct'])->name('addproduct');
 Route::get('/productlist',[ProductController::class,'productlist'])->name('productlist');
 Route::post('saveproduct',[ProductController::class,'saveproduct'])->name('saveproduct');
+Route::get('deleteproduct/{id}',[ProductController::class,'deleteproduct']);
 
 
 
