@@ -85,10 +85,12 @@
     
 
     <div class="checkout-container">
-   
-        <form >
+        @if(Session::has('total'))
+        <form action="{{route('check_out')}}" method="GET">
+
             <input type="submit" class="btn checkout-btn" value="Checkout" name="">
         </form>
+        @endif
       
     
     </div>

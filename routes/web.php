@@ -61,6 +61,7 @@ Route::get('/edit_product_quantity',function()
 return redirect('/');
 }
 );
+Route::get('/check_out',[CartController::class,'check_out'])->name('check_out');
 
 
 
