@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -162,6 +164,45 @@ class CartController extends Controller
     {
         return view('checkout');
     }
+
+    function order_detail(Request $request)
+    {
+
+
+        $request->validate(
+            [
+            'name'=>'required',
+            'email'=>'required',
+            'phone'=>'required',
+            'city'=>'required',
+            'address'=>'required',
+            ]
+        );
+
+        $order=new Order();
+        $order->user_id=Auth::user()->id;
+        $order->user_name=$request->input('name');
+        $order->email=$request->input('email');
+        $order->address=$request->input('address');
+        $order->city=$request->input('city');
+        $order->phone=$request->input('phone');
+        $order->total=session()->get('total');
+        $order->delivery_method="On foot";
+        $order->payment_method="COD";
+        $order->save();
+        return view('order_detail');
+       // $order->city=$request->input('city');
+        // $order->
+
+
+
+
+
+
+       
+    }
+
+
 
 
 }

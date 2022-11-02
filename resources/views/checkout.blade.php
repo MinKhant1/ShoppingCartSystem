@@ -13,16 +13,16 @@
     </div>
 
     <div class="mx-auto container">
-        <form id="checkout-form">
+        <form id="checkout-form" action="{{route('order_detail')}}">
          
             <div class="form-group checkout-small-element">
                 <label for="">Name</label>
-                <input type="text" class="form-control" id="checkout-name" name="name" placeholder="name" required>
+                <input type="text" class="form-control" id="checkout-name" name="name" placeholder="name" value="{{auth()->user()->name}}" readonly>
             </div>
 
             <div class="form-group checkout-small-element">
                 <label for="">Email</label>
-                <input type="email" class="form-control" id="checkout-email" name="email" placeholder="email address" required>
+                <input type="email" class="form-control" id="checkout-email" name="email" placeholder="email address" value="{{auth()->user()->email}}" readonly>
             </div>
 
             <div class="form-group checkout-small-element">
@@ -43,8 +43,9 @@
 
             <div class="form-group checkout-btn-container">
                 @if(Session::has('total'))
+        
                 <p>Total amount: ${{Session::get('total')}}</p>
-                <input type="submit" class="btn" id="checkout-btn" name="checkout_btn" value="Checkout">
+                <input type="submit" class="btn" id="checkout-btn" name="checkout_btn" value="Buy">
                 @endif
             </div>
     
