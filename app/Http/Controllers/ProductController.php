@@ -26,9 +26,12 @@ class ProductController extends Controller
     }
 
 
-    function single_product()
+    function single_product($id)
     {
-        return view('single_product');
+
+        $product=Product::find($id);
+
+        return view('single_product')->with('product',$product);
     }
 
     function productlist()

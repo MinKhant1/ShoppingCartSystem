@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,8 +36,24 @@ Route::post('updateproduct',[ProductController::class,'updateproduct']);
 //user
 
 Route::get('/products',[ProductController::class,'products'])->name('products');
-Route::get('/single_product',[ProductController::class,'single_product']);
+Route::get('/single_product/{id}',[ProductController::class,'single_product']);
 
+
+//cart
+Route::get('/cart',[CartController::class,'cart'])->name('cart');
+Route::post('/add_to_cart',[CartController::class,'add_to_cart'])->name('add_to_cart');
+Route::get('/add_to_cart',function()
+{
+return redirect('/');
+}
+);
+
+Route::post('/remove_from_cart',[CartController::class,'remove_from_cart'])->name('remove_from_cart');
+Route::get('/remove_from_cart',function()
+{
+return redirect('/');
+}
+);
 
 
 

@@ -17,8 +17,20 @@
                         <h6 class="text-uppercase">{{$product->name}}</h6>
                         <h5 class="text-primary mb-0">${{$product->price}}</h5>
                         <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
+
+                            <form action= "{{route('add_to_cart')}}" method="POST">
+                                @csrf
+                                  <input type="hidden" name="id" value="{{$product->id}}">
+                                  <input type="hidden" name="product_name" value="{{$product->name}}">
+                                  <input type="hidden" name="product_image" value="{{$product->image}}">
+                                  <input type="hidden" name="product_price" value="{{$product->price}}">
+                                  <input type="hidden" name="quantity" value="1">
+                                  <button type="submit" style="background: none; border:none">
+                            <a class="btn btn-primary py-2 px-3" ><i class="bi bi-cart"></i></a>
+                                  </button>
+                            </form>
+                            <a class="btn btn-primary py-2 px-3" href="{{url('/single_product/'.$product->id)}}"><i class="bi bi-eye"></i></a>
+                        
                         </div>
                     </div>
                 </div>
