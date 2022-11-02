@@ -35,7 +35,7 @@ Route::post('updateproduct',[ProductController::class,'updateproduct']);
 //user
 
 Route::get('/products',[ProductController::class,'products'])->name('products');
-
+Route::get('/single_product',[ProductController::class,'single_product']);
 
 
 

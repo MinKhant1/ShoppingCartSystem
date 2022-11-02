@@ -25,6 +25,12 @@ class ProductController extends Controller
     
     }
 
+
+    function single_product()
+    {
+        return view('single_product');
+    }
+
     function productlist()
     {
         if(auth()->user()->role==1)
