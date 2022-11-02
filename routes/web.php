@@ -55,7 +55,12 @@ return redirect('/');
 }
 );
 
-
+Route::post('/edit_product_quantity',[CartController::class,'edit_product_quantity'])->name('edit_product_quantity');
+Route::get('/edit_product_quantity',function()
+{
+return redirect('/');
+}
+);
 
 
 

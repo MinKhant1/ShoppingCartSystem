@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    //
-
-
     function cart()
     {
         return view('cart');
@@ -28,7 +25,7 @@ class CartController extends Controller
                 $name=$request->input('product_name');
                 $price=$request->input('product_price');
                 $image=$request->input('product_image');
-                $quantity=$request->input('product_quantity');
+                $quantity=1;
                 // $sale_price=$request->input('sale_price');
 
                 $product_array=array(
@@ -60,7 +57,7 @@ class CartController extends Controller
                 $name=$request->input('product_name');
                 $price=$request->input('product_price');
                 $image=$request->input('product_image');
-                $quantity=$request->input('product_quantity');
+                $quantity=1;
              
                 $product_array=array(
                             'id'=>$id,
@@ -100,7 +97,45 @@ class CartController extends Controller
       }
     }
 
+    function edit_product_quantity(Request $request)
+    {
+        if($request->session()->has('cart'))
+        {
+            $product_id=$request->input('id');
+            $product_quantity=$request->input('quantity');
 
+
+            if($request->has('decrease_product_quantity_btn'))
+            {
+                $product_quantity--;
+
+            }
+            else if($request->has('increase_product_quantity_btn'))
+            {
+
+                $product_quantity++;
+            }else
+            {
+
+            }
+
+
+            if($product_quantity<=0)
+            {
+                $this->remove_from_Cart($request);
+            }
+            $cart=$request->session()->get('cart');
+
+            if(array_key_exists($product_id,$cart))
+            {
+                $cart[$product_id]['quantity']=$product_quantity;
+                $request->session()->put('cart',$cart);
+                $this->calculateTotalCart($request);
+            }
+
+            return view('cart');
+        }
+    }
     function calculateTotalCart(Request $request)
     {
         $cart=$request->session()->get('cart');
@@ -122,4 +157,6 @@ class CartController extends Controller
         $request->session()->put('quantity',$total_quantity);
 
     }
+
+
 }

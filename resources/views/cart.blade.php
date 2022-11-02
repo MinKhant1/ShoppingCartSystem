@@ -37,14 +37,27 @@
                     </td>
 
                     <td>
-                        <form>
-                            <input type="number" name="quantity" value="1">
-                            <input type="submit" value="edit" class="edit-btn" name="edit_product_quantity_btn">
-                        </form>
-                    </td>
+                       
+            <td>
+                <form method="POST" action="{{route('edit_product_quantity')}}">
+                  @csrf
+                  <input type="submit" value="-" class="edit-btn" name="decrease_product_quantity_btn">
+  
+                  <input type="hidden" name="id" value="{{$product['id']}}">
+                  <input type="text" name="quantity" value="{{$product['quantity']}}" readonly>
+                  {{-- <input type="submit" value="edit" class="edit-btn" name="edit_product_quantity_btn"> --}}
+  
+                  <input type="submit" value="+" class="edit-btn" name="increase_product_quantity_btn">
+                </form>
+              {{-- </td>
+  
+              <td>
+                <span class="product-price">$ {{ $product['quantity'] * $product['price']}}</span>
+              </td>
+                    </td> --}}
 
                     <td>
-                        <span class="product-price">$199</span>
+                        <span class="product-price">${{ $product['quantity'] * $product['price']}}</span>
                     </td>
                 </tr>
                 @endforeach
@@ -57,10 +70,15 @@
     <div class="cart-total">
         <table>
   
-            <tr>
-                <td>Total</td>
-                <td>$199</td>
-            </tr>
+            @if (Session::has('cart'))
+                @if (Session::has('total'))
+                <tr>
+                    <td>Total</td>
+                    <td>${{Session::get('total')}}</td>
+                </tr>
+                @endif
+          
+            @endif
        
         </table>
     </div>
