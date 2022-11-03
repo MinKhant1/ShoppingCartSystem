@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+
+
+    
+
     function cart()
     {
         return view('cart');
@@ -190,6 +195,8 @@ class CartController extends Controller
         $order->delivery_method="On foot";
         $order->payment_method="COD";
         $order->save();
+        session()->put('order',$order);
+       
         return view('order_detail')->with('order',$order);
        // $order->city=$request->input('city');
         // $order->
@@ -201,6 +208,26 @@ class CartController extends Controller
 
        
     }
+
+    // public function index() {
+    //     return view('order_detail');
+    // }
+
+    // public function exportpdf()
+    // { 
+    
+     
+    //     $order=session()->get('order');
+    
+    //     //dd($order);
+    //     $pdf = Pdf::loadView('order_detail',['order'=>$order]); 
+    //     // return $pdf->download ('file-pdf.pdf');
+    //   $path = public_path('pdf_docs/'); 
+    //   $fileName =  time().'.'. 'pdf' ; 
+    //   $pdf->save($path . '/' . $fileName);
+    //   $generated_pdf_link = url('pdf_docs/'.$fileName);
+    //   return response()->json($generated_pdf_link);
+    // }
 
 
 

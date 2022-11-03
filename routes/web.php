@@ -66,6 +66,11 @@ Route::get('/check_out',[CartController::class,'check_out'])->name('check_out');
 Route::get('/order_detail',[CartController::class,'order_detail'])->name('order_detail');
 
 
+//export pdf
+Route::get('/index', [App\Http\Controllers\PdfController::class, 'index']);
+Route::get('/view_pdf/{id}', [App\Http\Controllers\PdfController::class, 'view_pdf'])->name('view_pdf');
+
+
 
 
 Route::middleware([

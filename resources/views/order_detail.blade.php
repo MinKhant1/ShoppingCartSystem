@@ -105,6 +105,7 @@
 				text-align: left;
 			}
 		</style>
+		
 	</head>
 
 	<body>
@@ -118,6 +119,9 @@
 					</td>
 				</tr>
 
+				@if ($order)
+					
+				
 				<tr class="information">
 					<td colspan="2">
 						<table>
@@ -162,29 +166,21 @@
 				</tr>
 				@endforeach
 				@endif
-			
+				@endif
 
-				{{-- <tr class="item">
-					<td>Hosting (3 months)</td>
-
-					<td>$75.00</td>
-				</tr>
-
-				<tr class="item last">
-					<td>Domain name (1 year)</td>
-
-					<td>$10.00</td>
-				</tr>
-
-				<tr class="total">
-					<td></td>
-
-					<td>Total: $385.00</td>
-				</tr> --}}
 			</table>
          
 		</div>
-        <a style="margin-left: 40%; margin-top:2%" href="" class="btn btn-success" ><i class="nav-icon fas fa-print">  Print</i></a>
+		{{-- <form action="{{route('exportpdf')}}" method="POST">
+			
+			<input type="hidden" name="user_id" value="{{$order->name}}">
+			<input type="hidden" name="product_image" value="{{$order->user_name}}">
+			{{-- <input type="hidden" name="product_price" value="{{$order->}}"> --}}
+			{{-- <input type="hidden" name="quantity" value="1"> --}}
+			{{-- <button type="submit" style="background: none; border:none"> --}}
+			<a style="margin-left: 40%; margin-top:2%" href="{{url('view_pdf/'.$order->id)}}" class="btn btn-success" ><i class="nav-icon fas fa-print">  Print</i></a>
+			{{-- </button> --}}
+		</form>
         <a style="margin-left: 5%;  margin-top:2%" href="" class="btn btn-success" ><i class="nav-icon fas fa-print">  Home</i></a>
 	</body>
 </html>
