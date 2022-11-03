@@ -9,6 +9,10 @@
 		<title>A simple, clean, and responsive HTML invoice template</title>
 
 		<style>
+			.center-text
+			{
+				text-align: center;
+			}
 			.invoice-box {
 				max-width: 800px;
 				margin: auto;
@@ -109,17 +113,7 @@
 				<tr class="top">
 					<td colspan="2">
 						<table>
-							<tr>
-								{{-- <td class="title">
-									<img src="https://www.sparksuite.com/images/logo.png" style="width: 100%; max-width: 300px" />
-								</td> --}}
-
-								<td>
-									Invoice #: 123<br />
-									Created: January 1, 2015<br />
-									
-								</td>
-							</tr>
+						
 						</table>
 					</td>
 				</tr>
@@ -129,46 +123,48 @@
 						<table>
 							<tr>
 								<td>
-									Sparksuite, Inc.<br />
-									12345 Sunny Road<br />
-									Sunnyville, CA 12345
+									Bill to: {{$order->user_name}}<br />
+									Address: {{$order->address}}<br />
+									City: {{$order->city}}<br/>
+									Payment Method: {{$order->payment_method}}<br />
+									Delivery Method: {{$order->delivery_method}}
+
 								</td>
 
 								<td>
-									Acme Corp.<br />
-									John Doe<br />
-									john@example.com
+									Invoice #: {{$order->id}}<br />
+									Date: {{$order->created_at}}<br />
+							
 								</td>
 							</tr>
 						</table>
 					</td>
 				</tr>
 
-				<tr class="heading">
-					<td>Payment Method</td>
+				
 
-					<td>Check #</td>
-				</tr>
-
-				<tr class="details">
-					<td>Check</td>
-
-					<td>1000</td>
-				</tr>
+			
 
 				<tr class="heading">
-					<td>Item</td>
-
-					<td>Price</td>
+					<td class="center-text">Item</td>
+					<td class="center-text">Unit Price</td>
+					<td class="center-text">Quantity</td>
+					<td class="center-text">Price</td>
 				</tr>
 
+				@if (Session::has('cart'))
+				@foreach(Session::get('cart') as $product)
 				<tr class="item">
-					<td>Website design</td>
-
-					<td>$300.00</td>
+					<td class="center-text">{{$product['name']}}</td>
+					<td class="center-text">{{$product['price']}}</td>
+					<td class="center-text">{{$product['quantity']}}</td>
+					<td class="center-text">${{$product['quantity']*$product['price']}}</td>
 				</tr>
+				@endforeach
+				@endif
+			
 
-				<tr class="item">
+				{{-- <tr class="item">
 					<td>Hosting (3 months)</td>
 
 					<td>$75.00</td>
@@ -184,7 +180,7 @@
 					<td></td>
 
 					<td>Total: $385.00</td>
-				</tr>
+				</tr> --}}
 			</table>
          
 		</div>

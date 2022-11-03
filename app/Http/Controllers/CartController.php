@@ -190,7 +190,7 @@ class CartController extends Controller
         $order->delivery_method="On foot";
         $order->payment_method="COD";
         $order->save();
-        return view('order_detail');
+        return view('order_detail')->with('order',$order);
        // $order->city=$request->input('city');
         // $order->
 
