@@ -28,7 +28,7 @@
             <div class="form-group checkout-small-element">
                 <label for="">Phone</label>
                 <input type="tel" class="form-control" id="checkout-phone" name="phone" placeholder="phone number" required>
-            </div>
+            </div>  
 
             <div class="form-group checkout-small-element">
                 <label for="">City</label>
@@ -39,6 +39,26 @@
                 <label for="">Address</label>
                 <input type="text" class="form-control" id="checkout-address" name="address" placeholder="address" required>
             </div>
+
+            <div class="col-2 form-group checkout-small-element">
+                <label for="exampleFormControlSelect1">Select Delivery Method</label>
+              <select class="form-control" id="deliverymethod"  name="deliverymethod" onchange="">
+                <option value=""></option>
+                @foreach ($delivery_methods as $delivery_method)
+                <option value="{{$delivery_method->name}}">{{$delivery_method->name}}</option>
+                @endforeach
+              </select>
+              </div>
+
+              <div class="col-2 form-group checkout-small-element">
+                <label for="exampleFormControlSelect1">Select Payment Method</label>
+              <select class="form-control" id="paymentmethod"  name="paymentmethod" onchange="">
+                <option value=""></option>
+                @foreach ($payment_methods as $payment_method)
+                <option value="{{$payment_method->name}}">{{$payment_method->name}}</option>
+                @endforeach
+              </select>
+              </div>
 
 
             <div class="form-group checkout-btn-container">

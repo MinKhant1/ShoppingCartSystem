@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DeliveryMethod;
 use App\Models\Order;
+use App\Models\PaymentMethod;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -167,7 +169,9 @@ class CartController extends Controller
 
     function check_out()
     {
-        return view('checkout');
+        $delivery_methods=DeliveryMethod::all();
+        $payment_methods=PaymentMethod::all();
+        return view('checkout')->with('payment_methods',$delivery_methods)->with('delivery_methods',$payment_methods);
     }
 
     function order_detail(Request $request)
@@ -192,8 +196,8 @@ class CartController extends Controller
         $order->city=$request->input('city');
         $order->phone=$request->input('phone');
         $order->total=session()->get('total');
-        $order->delivery_method="On foot";
-        $order->payment_method="COD";
+        $order->delivery_method=$request->input('deliverymethod');
+        $order->payment_method=$request->input('paymentmethod');
         $order->save();
         session()->put('order',$order);
        
