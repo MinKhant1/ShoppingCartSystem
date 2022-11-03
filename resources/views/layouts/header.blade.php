@@ -31,6 +31,35 @@
     {{-- bootstrap --}}
     
   
+<style>
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  z-index:100;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  overflow: auto;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content a {
+  display: block;
+  color: #000000;
+  padding: 5px;
+  text-decoration: none;
+}
+.dropdown-content a:hover {
+  color: #FFFFFF;
+  background-color: #00A4BD;
+}
+</style>
+
 </head>
 
 <body>
@@ -79,16 +108,28 @@
         </button>
         @if (Auth::check())
         @if (Auth::user()->role==1)
+
+        
         <div class="dropdown" >
-            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+
+          
+                <button class="btn  dropdown-toggle" aria-expanded="true" >     Admin Setup     </button>
+                <div class="dropdown-content">
+                    <a  href="{{route('productlist')}}">Products</a>
+                    <a  href="{{route('deliverymethodlist')}}">Delivery Method</a>
+                    <a  href="{{route('paymentmethodlist')}}">Payment Method</a>
+          </div>
+           
+            {{-- <button class="btn  dropdown-toggle"id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Admin
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="{{route('productlist')}}">Manage Products</a></li>
               <li><a class="dropdown-item" href="{{route('deliverymethodlist')}}">Setup Delivery Method</a></li>
               <li><a class="dropdown-item" href="{{route('paymentmethodlist')}}">Setup Payment Method</a></li>
-            </ul>
-          </div>
+            </ul> --}}
+      
+        </div> 
           
           @endif
 
@@ -131,4 +172,13 @@
             </div>
         </div>
     </nav>
+
+    <script>
+        $(function() {
+  $('.dropdown-toggle').click(function(e) {
+    e.preventDefault();
+    $(this).parent().toggleClass('open');
+  });
+});
+    </script>
     <!-- Navbar End -->

@@ -23,10 +23,10 @@
 
 
 <!-- About Start -->
-<div class="container-fluid py-5">
+<div class="container-fluid py-5" style="margin-top: 100px;">
     <div class="container">
         <div class="row gx-5">
-            <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
+            <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px; ">
                 <div class="position-relative h-100">
                     <img class="position-absolute w-100 h-100 rounded" src="img/about.jpg" style="object-fit: cover;">
                 </div>
