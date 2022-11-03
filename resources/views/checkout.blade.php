@@ -15,6 +15,7 @@
     <div class="mx-auto container">
         <form id="checkout-form" action="{{route('order_detail')}}">
          
+            @if (Auth::check())
             <div class="form-group checkout-small-element">
                 <label for="">Name</label>
                 <input type="text" class="form-control" id="checkout-name" name="name" placeholder="name" value="{{auth()->user()->name}}" readonly>
@@ -24,6 +25,18 @@
                 <label for="">Email</label>
                 <input type="email" class="form-control" id="checkout-email" name="email" placeholder="email address" value="{{auth()->user()->email}}" readonly>
             </div>
+            @else
+            <div class="form-group checkout-small-element">
+                <label for="">Name</label>
+                <input type="text" class="form-control" id="checkout-name" name="name" placeholder="name" value="">
+            </div>
+
+            <div class="form-group checkout-small-element">
+                <label for="">Email</label>
+                <input type="email" class="form-control" id="checkout-email" name="email" placeholder="email address" value="" >
+            </div>
+            @endif
+           
 
             <div class="form-group checkout-small-element">
                 <label for="">Phone</label>
@@ -43,7 +56,7 @@
             <div class="col-2 form-group checkout-small-element">
                 <label for="exampleFormControlSelect1">Select Delivery Method</label>
               <select class="form-control" id="deliverymethod"  name="deliverymethod" onchange="">
-                <option value=""></option>
+                {{-- <option value="">Select a Delivery Method</option> --}}
                 @foreach ($delivery_methods as $delivery_method)
                 <option value="{{$delivery_method->name}}">{{$delivery_method->name}}</option>
                 @endforeach
@@ -53,7 +66,7 @@
               <div class="col-2 form-group checkout-small-element">
                 <label for="exampleFormControlSelect1">Select Payment Method</label>
               <select class="form-control" id="paymentmethod"  name="paymentmethod" onchange="">
-                <option value=""></option>
+                {{-- <option value="">Select A Payment Method</option> --}}
                 @foreach ($payment_methods as $payment_method)
                 <option value="{{$payment_method->name}}">{{$payment_method->name}}</option>
                 @endforeach

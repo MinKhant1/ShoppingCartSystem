@@ -34,7 +34,8 @@ class CartController extends Controller
                 $name=$request->input('product_name');
                 $price=$request->input('product_price');
                 $image=$request->input('product_image');
-                $quantity=1;
+                $quantity=$request->input('quantity');
+              
                 // $sale_price=$request->input('sale_price');
 
                 $product_array=array(
@@ -66,7 +67,8 @@ class CartController extends Controller
                 $name=$request->input('product_name');
                 $price=$request->input('product_price');
                 $image=$request->input('product_image');
-                $quantity=1;
+                $quantity=$request->input('quantity');
+              
              
                 $product_array=array(
                             'id'=>$id,
@@ -189,7 +191,11 @@ class CartController extends Controller
         );
 
         $order=new Order();
-        $order->user_id=Auth::user()->id;
+        if(Auth::check())
+        {
+            $order->user_id=Auth::user()->id;
+
+        }
         $order->user_name=$request->input('name');
         $order->email=$request->input('email');
         $order->address=$request->input('address');
@@ -200,6 +206,7 @@ class CartController extends Controller
         $order->payment_method=$request->input('paymentmethod');
         $order->save();
         session()->put('order',$order);
+       // session()->forget('cart');
        
         return view('order_detail')->with('order',$order);
        // $order->city=$request->input('city');
@@ -212,6 +219,8 @@ class CartController extends Controller
 
        
     }
+
+    
 
     // public function index() {
     //     return view('order_detail');

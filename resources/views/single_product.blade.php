@@ -21,11 +21,23 @@
                 </div>
                 <p class="lead">{{$product->description}}</p>
                 <div class="d-flex">
-                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                    <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                        <i class="bi-cart-fill me-1"></i>
-                        Add to cart
-                    </button>
+                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" oninput="getQuantity()" />
+                    <form action= "{{route('add_to_cart')}}" method="POST">
+                        @csrf
+                          <input type="hidden" name="id" value="{{$product->id}}">
+                          <input type="hidden" name="product_name" value="{{$product->name}}">
+                          <input type="hidden" name="product_image" value="{{$product->image}}">
+                          <input type="hidden" name="product_price" value="{{$product->price}}">
+                          <input type="hidden" id="hiddenquantity" name="quantity" value="">
+                          
+                          <button type="submit" style="background: none; border:none">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                                <i class="bi-cart-fill me-1"></i>
+                                Add to cart
+                            </button>
+                    </form>
+                   
+                   
                 </div>
             </div>
         </div>
@@ -39,4 +51,19 @@
     $('#addStar').change('.star', function(e) {
     $(this).submit();
     });
+</script>
+
+<script>
+
+function getQuantity()
+{
+    var quantityInput=document.getElementById("inputQuantity"); 
+    var hiddenQuantity=document.getElementById("hiddenquantity");    
+     hiddenQuantity.value=quantityInput.value;
+
+  
+
+}
+
+
 </script>

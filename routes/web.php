@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\DeliveryMethodController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProjectController;
 use App\Models\DeliveryMethod;
 use Illuminate\Support\Facades\Route;
 
@@ -92,6 +93,10 @@ Route::post('/savepaymentmethod',[PaymentMethodController::class,'savepaymentmet
 Route::get('deletepaymentmethod/{id}',[PaymentMethodController::class,'deletepaymentmethod']);
 Route::get('editpaymentmethod/{id}',[PaymentMethodController::class,'editpaymentmethod']);
 Route::post('updatepaymentmethod',[PaymentMethodController::class,'updatepaymentmethod']);
+
+
+//logout
+Route::post('/logout',[ProjectController::class,'dologout'])->name('dologout');
 
 
 Route::middleware([

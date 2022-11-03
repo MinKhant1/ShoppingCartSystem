@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>PET SHOP - Pet Shop Website Template</title>
+    <title>Shopping Cart System</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -67,12 +67,12 @@
         </div>
     </div>
     <!-- Topbar End --> --}}
-
+    {{-- <span class="bi bi-cart-dash"></span> --}}
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0">
-        <a href="index.html" class="navbar-brand ms-lg-5">
-            <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-shop fs-1 text-primary me-3"></i>Pet Shop</h1>
+        <a href="{{url('/')}}" class="navbar-brand ms-lg-5">
+            <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-cart-dash fs-1 text-primary me-3">Amazing</i></h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -80,7 +80,7 @@
         @if (Auth::check())
         @if (Auth::user()->role==1)
         <div class="dropdown" >
-            <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Admin
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -104,11 +104,10 @@
               
                 
                 <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="{{Route('products')}}" class="nav-item nav-link">Products</a>
 
                 @if (Auth::check())
-                <form action="{{route('logout')}}" method="POST">
+                <form action="{{route('dologout')}}" method="POST">
                     @csrf
                     <div class="nav-item">
                         <a class="nav-link"  onclick="event.preventDefault();

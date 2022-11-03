@@ -31,10 +31,10 @@
                     <img class="position-absolute w-100 h-100 rounded" src="img/about.jpg" style="object-fit: cover;">
                 </div>
             </div>
-            <div class="col-lg-7">
+            <div class="col-lg-7" >
                 <div class="border-start border-5 border-primary ps-5 mb-5">
-                    <h6 class="text-primary text-uppercase">About Us</h6>
-                    <h1 class="display-5 text-uppercase mb-0">We Keep Your Pets Happy All Time</h1>
+                    {{-- <h6 class="text-primary text-uppercase">About Us</h6> --}}
+                    <h1 class="text-primary text-uppercase">Shop with us</h1>
                 </div>
                 <h4 class="text-body mb-4">Diam dolor diam ipsum tempor sit. Clita erat ipsum et lorem stet no labore lorem sit clita duo justo magna dolore</h4>
                 <div class="bg-light p-4">
@@ -68,7 +68,7 @@
 
 
 <!-- Products Start -->
-<div class="container-fluid py-5">
+{{-- <div class="container-fluid py-5">
     <div class="container">
         <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
             <h6 class="text-primary text-uppercase">Products</h6>
@@ -132,12 +132,12 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Products End -->
 
 
 <!-- Offer Start -->
-<div class="container-fluid bg-offer my-5 py-5">
+{{-- <div class="container-fluid bg-offer my-5 py-5">
     <div class="container py-5">
         <div class="row gx-5 justify-content-start">
             <div class="col-lg-7">
@@ -151,7 +151,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Offer End -->
 
 
