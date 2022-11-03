@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DeliveryMethodController;
+use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\ProductController;
+use App\Models\DeliveryMethod;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -71,6 +74,24 @@ Route::get('/index', [App\Http\Controllers\PdfController::class, 'index']);
 Route::get('/view_pdf/{id}', [App\Http\Controllers\PdfController::class, 'view_pdf'])->name('view_pdf');
 
 
+//delivery method
+
+Route::get('/deliverymethodlist',[DeliveryMethodController::class,'deliverymethodlist'])->name('deliverymethodlist');
+Route::get('/setupdeliverymethod',[DeliveryMethodController::class,'setupdeliverymethod'])->name('setupdeliverymethod');
+Route::post('/savedeliverymethod',[DeliveryMethodController::class,'savedeliverymethod'])->name('savedeliverymethod');
+Route::get('deletedeliverymethod/{id}',[DeliveryMethodController::class,'deletedeliverymethod']);
+Route::get('editdeliverymethod/{id}',[DeliveryMethodController::class,'editdeliverymethod']);
+Route::post('updatedeliverymethod',[DeliveryMethodController::class,'updatedeliverymethod']);
+
+
+//payment method
+
+Route::get('/paymentmethodlist',[PaymentMethodController::class,'paymentmethodlist'])->name('paymentmethodlist');
+Route::get('/setuppaymentmethod',[PaymentMethodController::class,'setuppaymentmethod'])->name('setuppaymentmethod');
+Route::post('/savepaymentmethod',[PaymentMethodController::class,'savepaymentmethod'])->name('savepaymentmethod');
+Route::get('deletepaymentmethod/{id}',[PaymentMethodController::class,'deletepaymentmethod']);
+Route::get('editpaymentmethod/{id}',[PaymentMethodController::class,'editpaymentmethod']);
+Route::post('updatepaymentmethod',[PaymentMethodController::class,'updatepaymentmethod']);
 
 
 Route::middleware([

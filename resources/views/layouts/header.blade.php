@@ -28,7 +28,9 @@
     <!-- Template Stylesheet -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
+    {{-- bootstrap --}}
     
+  
 </head>
 
 <body>
@@ -75,16 +77,30 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
+        @if (Auth::check())
+        @if (Auth::user()->role==1)
+        <div class="dropdown" >
+            <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Admin
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="{{route('productlist')}}">Manage Products</a></li>
+              <li><a class="dropdown-item" href="{{route('deliverymethodlist')}}">Setup Delivery Method</a></li>
+              <li><a class="dropdown-item" href="{{route('paymentmethodlist')}}">Setup Payment Method</a></li>
+            </ul>
+          </div>
+          
+          @endif
+
+                
+          @endif
+
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
 
-                @if (Auth::check())
-                @if (Auth::user()->role==1)
-                    <a href="{{route('productlist')}}" class="nav-item nav-link active">Manage Products</a>
-                    @endif
-
-                
-                @endif
+               
+                    {{-- <a href="{{route('productlist')}}" class="nav-item nav-link active">Manage Products</a> --}}
+                    
               
                 
                 <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
