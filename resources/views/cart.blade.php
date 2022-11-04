@@ -36,7 +36,7 @@
                         </div>
                     </td>
 
-                    <td>
+                    
                        
             <td>
                 <form method="POST" action="{{route('edit_product_quantity')}}">
@@ -49,12 +49,7 @@
   
                   <input type="submit" value="+" class="edit-btn" name="increase_product_quantity_btn">
                 </form>
-              {{-- </td>
-  
-              <td>
-                <span class="product-price">$ {{ $product['quantity'] * $product['price']}}</span>
-              </td>
-                    </td> --}}
+            
 
                     <td>
                         <span class="product-price">${{ $product['quantity'] * $product['price']}}</span>

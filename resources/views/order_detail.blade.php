@@ -123,7 +123,7 @@
 					
 				
 				<tr class="information">
-					<td colspan="2">
+					<td colspan="4">
 						<table>
 							<tr>
 								<td>
@@ -136,7 +136,7 @@
 								</td>
 								
 
-								<td>
+								<td >
 									{{-- Invoice #: {{$order->id}}<br /> --}}
 									Date:<b> {{$order->created_at->format('d/m/Y')}}</b><br />
 							
