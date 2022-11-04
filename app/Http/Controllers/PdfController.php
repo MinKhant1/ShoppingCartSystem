@@ -155,7 +155,7 @@ class PdfController extends Controller
 					</td>
 				</tr>
 				<tr class="information">
-					<td colspan="2">
+					<td colspan="4">
 						<table>
 							<tr>
 								<td>
