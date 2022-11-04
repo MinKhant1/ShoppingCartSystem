@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -146,6 +147,21 @@ class ProductController extends Controller
 
 
 
+
+    }
+
+    function category($category)
+    {
+        if($category==null)
+        {
+            $products= DB::table('products')->where('category',$category)->get(); 
+
+        }
+        else
+        {
+            $products=Product::all();
+        }
+        return view('products',['products'=>$products]);
 
     }
 

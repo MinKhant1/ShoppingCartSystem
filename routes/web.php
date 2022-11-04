@@ -41,6 +41,8 @@ Route::post('updateproduct',[ProductController::class,'updateproduct']);
 
 Route::get('/products',[ProductController::class,'products'])->name('products');
 Route::get('/single_product/{id}',[ProductController::class,'single_product']);
+//category
+Route::get('/products/{category}',[ProductController::class,'category'])->name('category');
 
 
 //cart
@@ -97,6 +99,10 @@ Route::post('updatepaymentmethod',[PaymentMethodController::class,'updatepayment
 
 //logout
 Route::post('/logout',[ProjectController::class,'dologout'])->name('dologout');
+
+
+
+
 
 
 Route::middleware([

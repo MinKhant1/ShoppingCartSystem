@@ -3,15 +3,27 @@
 @section('content')
 
  <div class="container-fluid py-5">
-        <div class="container">
+        <div class="container" style="display: :flex">
             <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
                 <h6 class="text-primary text-uppercase">Products</h6>
                 <h1 class="display-5 text-uppercase mb-0">Products For Your Best Friends</h1>
             </div>
-            <div class="row">
+            <div  style="flex-direction: row; margin-left:25%">
+            <ul class="filters_menu ">
+                <a style="text-decoration: underline;"  href="{{route('products')}}"> All</a>
+                <a style=" margin-left:10%; text-decoration: underline;" href="{{route('category',['category'=>'Food'])}}"> Foods</a>
+              <a style=" margin-left:10%;text-decoration: underline;" href="{{route('category',['category'=>'Cosmetic'])}}">Cosmetics</a>
+              <a style=" margin-left:10%;text-decoration: underline;" href="{{route('category',['category'=>'Clothing'])}}">Clothing</a>
+              <a style=" margin-left:10%;text-decoration: underline;" href="{{route('category',['category'=>'Electronic'])}}">Electronics</a>
+            </div>
+              {{-- <a href="{{route('category',['category'=>'chicken'])}}">
+                <li data-filter=".fries">Chicken & Sandwiches</li>
+              </a> --}}
+              </ul>
+            <div class="row" style="margin-top: 5%">
 
                 @foreach ($products as $product)
-                <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="col-lg-3 col-md-6 col-sm-12" style="margin-top: 5%">
                     <div class="product-item position-relative bg-light d-flex flex-column text-center">
                         <img style="width:200px; height: 200px" class="img-fluid mb-4 mx-auto" src="{{asset('/storage/images/products/'.$product->image)}}" alt="">
                         <h6 class="text-uppercase">{{$product->name}}</h6>
