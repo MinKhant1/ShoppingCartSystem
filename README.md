@@ -13,16 +13,15 @@ To get a local copy up and running follow these simple example steps.
 ### Installation
 
 1.  git clone https://github.com/MinKhant1/ShoppingCartSystem.git
-2.  cd laravel-school-management-system
-3.  composer install
-4.  cp .env.example .env
-5.  require laravel/jetstream
-6.  php artisan jetstream:install livewire
-7.  npm insall
-8.  npm run dev
-9.  php artisan key:generate
-10. php artisan migrate
-11. php artisan serve
+2.  composer install
+3.  cp .env.example .env
+4.  require laravel/jetstream
+5.  php artisan jetstream:install livewire
+6.  npm insall
+7.  npm run dev
+8.  php artisan key:generate
+9. php artisan migrate
+10. php artisan serve
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
