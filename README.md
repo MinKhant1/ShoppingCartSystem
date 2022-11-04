@@ -15,13 +15,16 @@ To get a local copy up and running follow these simple example steps.
 1.  git clone https://github.com/MinKhant1/ShoppingCartSystem.git
 2.  composer install
 3.  cp .env.example .env
-4.  require laravel/jetstream
-5.  php artisan jetstream:install livewire
-6.  npm insall
-7.  npm run dev
-8.  php artisan key:generate
-9. php artisan migrate
-10. php artisan serve
+4.  php artisan jetstream:install livewire
+5.  npm i
+6.  npm run dev
+7.  php artisan key:generate
+8.  php artisan migrate
+9.  php artisan serve
 
+
+
+## Usage
+Register and Login before using the system.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
