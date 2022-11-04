@@ -28,7 +28,8 @@
     <!-- Template Stylesheet -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
-    {{-- bootstrap --}}
+    {{-- bootstrap icon --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     
   
 <style>
@@ -101,7 +102,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0">
         <a href="{{url('/')}}" class="navbar-brand ms-lg-5">
-            <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-cart-dash fs-1 text-primary me-3">Amazing</i></h1>
+            <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-cart-dash fs-1 text-primary me-3"><span style="font-size: 70%">   Amazing</span></i></h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>

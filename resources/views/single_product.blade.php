@@ -28,7 +28,7 @@
                           <input type="hidden" name="product_name" value="{{$product->name}}">
                           <input type="hidden" name="product_image" value="{{$product->image}}">
                           <input type="hidden" name="product_price" value="{{$product->price}}">
-                          <input type="hidden" id="hiddenquantity" name="quantity" value="">
+                          <input type="hidden" id="hiddenquantity" name="quantity" value="1">
                           
                           <button type="submit" style="background: none; border:none">
                             <button class="btn btn-outline-dark flex-shrink-0" type="submit">

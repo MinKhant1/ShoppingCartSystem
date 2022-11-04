@@ -127,17 +127,18 @@
 						<table>
 							<tr>
 								<td>
-									Bill to: {{$order->user_name}}<br />
-									Address: {{$order->address}}<br />
-									City: {{$order->city}}<br/>
-									Payment Method: {{$order->payment_method}}<br />
-									Delivery Method: {{$order->delivery_method}}
+									Bill to:<b> {{$order->user_name}}</b><br />
+									Address:<b> {{$order->address}}</b><br />
+									City: <b>{{$order->city}}</b><br/>
+									Payment Method: <b>{{$order->payment_method}}</b><br />
+									Delivery Method:<b> {{$order->delivery_method}}</b>
 
 								</td>
+								
 
 								<td>
-									Invoice #: {{$order->id}}<br />
-									Date: {{$order->created_at}}<br />
+									{{-- Invoice #: {{$order->id}}<br /> --}}
+									Date:<b> {{$order->created_at->format('d/m/Y')}}</b><br />
 							
 								</td>
 							</tr>
@@ -167,6 +168,12 @@
 				@endforeach
 				@endif
 				@endif
+				<tr class="heading">
+					<td class="center-text">Total</td>
+					<td class="center-text"></td>
+					<td class="center-text"></td>
+					<td class="center-text">${{Session::get('total')}}</td>
+				</tr>
 
 			</table>
          
@@ -178,10 +185,10 @@
 			{{-- <input type="hidden" name="product_price" value="{{$order->}}"> --}}
 			{{-- <input type="hidden" name="quantity" value="1"> --}}
 			{{-- <button type="submit" style="background: none; border:none"> --}}
-			<a style="margin-left: 40%; margin-top:2%" href="{{url('view_pdf/'.$order->id)}}" class="btn btn-success" ><i class="nav-icon fas fa-print">  Print</i></a>
+			<a style="margin-left: 40%; margin-top:2%" href="{{url('view_pdf/'.$order->id)}}" class="btn btn-success" ><i class="bi bi-printer-fill">  Print</i></a>
 			{{-- </button> --}}
 		</form>
-        <a style="margin-left: 5%;  margin-top:2%" href="" class="btn btn-success" ><i class="nav-icon fas fa-print">  Home</i></a>
+        <a style="margin-left: 5%;  margin-top:2%" href="{{url('/')}}" class="btn btn-success" ><i class="bi bi-house-door-fill"> Home</i></a>
 	</body>
 </html>
 

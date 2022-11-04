@@ -1,6 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
+@if (Session::has('status'))
+<div class="alert alert-success" style="margin-left: 15rem;">
+  {{Session::get('status')}}
+</div>
+@endif
 @if (count($errors) > 0)
   <div class="alert alert-danger" style="margin-left: 15rem">
     <ul>

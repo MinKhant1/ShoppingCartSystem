@@ -159,17 +159,17 @@ class PdfController extends Controller
 						<table>
 							<tr>
 								<td>
-									Bill to: '.$order->user_name.'<br />
-									Address: '.$order->address.'<br />
-									City: '.$order->city.'<br/>
-									Payment Method: '.$order->payment_method.'<br />
-									Delivery Method: '.$order->city.'
+									Bill to: <b>'.$order->user_name.'</b><br />
+									Address:<b> '.$order->address.'</b><br />
+									City: <b>'.$order->city.'</b><br/>
+									Payment Method:<b> '.$order->payment_method.'</b><br />
+									Delivery Method:<b> '.$order->city.'</b>
 
 								</td>
 
 								<td>
-									Invoice #: '.$order->id.'<br />
-									Date: '.$order->created_at.'<br />
+									
+									Date: <b>'.$order->created_at->format('d/m/Y').'</b><br />
 							
 								</td>
 							</tr>
@@ -198,7 +198,17 @@ class PdfController extends Controller
         </tr>
 		';
         }
+
+		
     }
+	$total=session()->get('total');
+
+	$output.='<tr class="heading">
+	<td class="center-text">Total</td>
+	<td class="center-text"></td>
+	<td class="center-text"></td>
+	<td class="center-text">'.$total.'</td>
+</tr>';
         $output.='</table></div>';
       
 

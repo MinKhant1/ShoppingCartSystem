@@ -152,15 +152,9 @@ class ProductController extends Controller
 
     function category($category)
     {
-        if($category==null)
-        {
-            $products= DB::table('products')->where('category',$category)->get(); 
+      $products= DB::table('products')->where('category',$category)->get(); 
 
-        }
-        else
-        {
-            $products=Product::all();
-        }
+        
         return view('products',['products'=>$products]);
 
     }
